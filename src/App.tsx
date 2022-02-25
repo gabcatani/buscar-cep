@@ -3,10 +3,18 @@ import './App.css';
 import { useState } from 'react';
 import api from './services/api';
 
+type test = {
+  logradouro:string;
+  complemento:string;
+  cep:string;
+  bairro:string;
+  localidade:string;
+}
+
 function App() {
 
   const [input, setInput] = useState('')
-  const [cep, setCep] = useState('');
+  const [cep, setCep] = useState<test | null>(null);
 
   async function handleSearch(){
   
@@ -16,6 +24,7 @@ function App() {
     
     try {
       const response = await api.get(`${input}/json`)
+      console.log(cep)
       setCep(response.data)
       setInput("")
 
@@ -48,17 +57,15 @@ function App() {
     
       </div>
 
-
-      {Object.keys(cep).length > 0 && (
+      {cep && (
       <main className="main">
       
-      <h2>CEP: {cep.cep} </h2>
-
+      <h2>CEP: {cep?.cep} </h2>
         <span>Logradouro: {cep.logradouro}</span>
         <span>Complemento: {cep.complemento}</span>
         <span>Bairro: {cep.bairro}</span>
         <span>Localidade: {cep.localidade}</span>
-
+       
       </main>
       )}
 
