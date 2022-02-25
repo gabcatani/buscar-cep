@@ -82,6 +82,17 @@
     font-weight: bold;
 }
 
+.footer {
+    background: #3C948B;
+    color: #FFF;
+    position:absolute;
+    bottom:0; 
+    width:100%;
+    text-align: center;
+    padding: 5px 0px;
+    font-size: 10px;
+}
+
 @media (min-width: 620px) {
     .title {
         font-size: 60px;

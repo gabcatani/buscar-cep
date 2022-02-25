@@ -68,7 +68,7 @@ function App() {
        
       </main>
       )}
-
+      <footer className="footer">By Gabriel</footer>
     </div>
   )
 }
